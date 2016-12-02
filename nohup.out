@@ -1,0 +1,8 @@
+
+(gedit:3250): Gtk-WARNING **: Failed to get the GNOME session proxy: The name org.gnome.SessionManager is not owned
+
+(gedit:3250): Gtk-WARNING **: Failed to get the Xfce session proxy: The name org.xfce.SessionManager is not owned
+
+(gedit:3250): Gtk-WARNING **: Failed to get an inhibit portal proxy: The name org.freedesktop.portal.Desktop is not owned
+
+(gedit:3250): Gtk-WARNING **: Unable to parse accelerator '\u0002': ignored request to install 5 accelerators

@@ -18,7 +18,13 @@ class Node(object):
 class LinkedList(object):
 	
 	def __init__(self, iterable=None):
-		"""Initialize this linked list; append the given items, if any"""
+		"""
+		Initialize this linked list; append the given items, if any
+		
+		best case running time: O(1) if method is not sent an iterable
+		worst case running time: O(n) if method is sent an iterable where n is the size for the iterable sent
+		"""
+		
 		self.head = None
 		self.tail = None
 		if iterable:
@@ -26,11 +32,19 @@ class LinkedList(object):
 				self.append(item)
 
 	def __repr__(self):
-		"""Return a string representation of this linked list"""
+		"""
+		Return a string representation of this linked list
+		
+		running time: same as as_list
+		"""
 		return 'LinkedList({})'.format(self.as_list())
 
 	def as_list(self):
-		"""Return a list of all items in this linked list"""
+		"""
+		Return a list of all items in this linked list
+		
+		running time: O(n) where n is the size of the list
+		"""
 		result = []
 		current = self.head
 		while current:
@@ -43,7 +57,11 @@ class LinkedList(object):
 		return self.head is None
 
 	def length(self):
-		"""Return the length of this linked list by traversing its nodes"""
+		"""
+		Return the length of this linked list by traversing its nodes
+		
+		running time: O(n) where n is the number of nodes
+		"""
 		current = self.head
 		count = 0
 		while current:
@@ -53,7 +71,11 @@ class LinkedList(object):
 		return count
 
 	def append(self, item):
-		"""Insert the given item at the tail of this linked list"""
+		"""
+		Insert the given item at the tail of this linked list
+		
+		running time: O(1)
+		"""
 		assert (self.head==None)==(self.tail==None)
 		
 		if self.head: #either head and tail should both contain values or both be None
@@ -66,7 +88,11 @@ class LinkedList(object):
 	
 	
 	def prepend(self, item):
-		"""Insert the given item at the head of this linked list"""
+		"""
+		Insert the given item at the head of this linked list
+		
+		running time: O(1)
+		"""
 		if self.head: #either head and tail should both contain values or both be None
 			tmp = self.head.next
 			self.head = Node(item)
@@ -75,24 +101,11 @@ class LinkedList(object):
 			self.head=self.tail=Node(item)
 
 	def delete(self, item):
-		"""Delete the given item from this linked list, or raise ValueError"""
-		
 		"""
-		# Pinecone code
+		Delete the given item from this linked list, or raise ValueError
 		
-		head=item?
-			head.:next^
-		
-		node=head
-		tru @
-		(
-			node.next=item ?
-				node.next.:next
-			~ !node.next ?
-				valueError
-			
-			node.:next
-		)
+		best case running time: O(1) if the item to delete is at the beginning
+		worst case running time: O(n) where n is the distance from the begining of the list to the item
 		"""
 		
 		if self.head!=None:
@@ -117,7 +130,12 @@ class LinkedList(object):
 		
 
 	def find(self, quality):
-		"""Return an item from this linked list satisfying the given quality"""
+		"""
+		Return an item from this linked list satisfying the given quality
+		
+		best case running time: O(1) if the item to delete is at the beginning
+		worst case running time: O(n) where n is the distance from the begining of the list to the first item that satisfies the quality
+		"""
 		
 		node=self.head
 		while(node):
